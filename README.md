@@ -8,6 +8,8 @@ No Node.js bridge. No middleware. Expert advisors `#import` `RmqBridge.dll`, whi
 MT4/MT5 EA  →  RmqBridge.dll  →  RabbitMQ :5672
 ```
 
+![MetaTrader connected to RabbitMQ](docs/images/screenshot.png)
+
 ## Quick start
 
 ### 1. Start RabbitMQ (WSL Docker)
