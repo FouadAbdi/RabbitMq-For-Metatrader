@@ -1,0 +1,27 @@
+name: rmq4mt
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rmq4mt-rabbitmq
+    hostname: rabbitmq
+    restart: unless-stopped
+    ports:
+      - "${RMQ_PORT:-5672}:5672"
+      - "${RMQ_MGMT_PORT:-15672}:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RMQ_USER:-rmq4mt}
+      RABBITMQ_DEFAULT_PASS: ${RMQ_PASS:-rmq4mt}
+      RABBITMQ_DEFAULT_VHOST: ${RMQ_VHOST:-/}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 10s
+      retries: 12
+      start_period: 40s
+
+volumes:
+  rabbitmq_data:

@@ -1,0 +1,7 @@
+LIBRARY RmqBridge
+EXPORTS
+    RmqConnect
+    RmqDisconnect
+    RmqPublish
+    RmqPoll
+    RmqGetLastError

@@ -1,0 +1,40 @@
+# Build output (root only — Library/bin/ holds release DLLs)
+/bin/
+/build/
+Library/build/
+# Release DLLs under Library/bin/ are tracked for tagged releases
+Library/bin/**
+!Library/bin/x86/
+!Library/bin/x86/RmqBridge.dll
+!Library/bin/x64/
+!Library/bin/x64/RmqBridge.dll
+
+# CMake FetchContent
+Library/build/_deps/
+
+# Infrastructure
+infrastructure/.env
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vs/
+.vscode/
+*.user
+*.suo
+*.dll
+!Library/bin/x86/RmqBridge.dll
+!Library/bin/x64/RmqBridge.dll
+*.exe
+*.lib
+*.exp
+*.obj
+*.pdb
+*.ilk
+
+# MetaTrader compiled experts
+*.ex4
+*.ex5
+
+# Archives
+*.rar
